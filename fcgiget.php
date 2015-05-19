@@ -27,7 +27,7 @@ if (!isset($_SERVER['argc'])) {
 function print_usage_and_exit() {
     echo "Usage: ".$_SERVER['argv'][0]."  URI\n\n";
     echo "Ex: ".$_SERVER['argv'][0]." localhost:9000/status\n";
-    echo "Ex: ".$_SERVER['argv'][0]." unix:/var/run/php-fpm/web.sock /status\n";
+    echo "Ex: ".$_SERVER['argv'][0]." unix:///var/run/php-fpm/web.sock /status\n";
     exit(1);
 }
 
@@ -35,7 +35,7 @@ if ($_SERVER['argc']<2) {
     print_usage_and_exit();
 }
 
-if (preg_match('|^unix:(.*)$|', $_SERVER['argv'][1], $reg)) {
+if (preg_match('|^unix://(.*)$|', $_SERVER['argv'][1], $reg)) {
     if ($_SERVER['argc'] < 3) {
         print_usage_and_exit();
     }
