@@ -43,8 +43,8 @@ if (preg_match('|^unix://(.*)$|', $_SERVER['argv'][1], $reg)) {
     $sock = $reg[1];
     if (!file_exists($sock)) {
         die("UDS $sock not found\n");
-    } else if (!is_writable($sock)) {
-        die("UDS $sock is not writable\n");
+//    } else if (!is_writable($sock)) {
+//        die("UDS $sock is not writable\n");
     }
 } else {
     $url  = parse_url($_SERVER['argv'][1]);
