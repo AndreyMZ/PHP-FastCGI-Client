@@ -54,7 +54,7 @@ if (!$url || !isset($url['path'])) {
     die("Malformed URI");
 }
 
-$req = '/'.basename($url['path']);
+$req = $url['path'];
 if (isset($url['query'])) {
     $uri = $req .'?'.$url['query'];
 } else {
